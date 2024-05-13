@@ -6,6 +6,7 @@ package br.pro.software.academicosexta;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
@@ -18,7 +19,7 @@ public class ConexaoBD {
     private static String usuario = "root";
     private static String senha = "root"; // você coloca anima123
 
-    public static Connection obterConexao() throws Exception{
+    public static Connection obterConexao() throws SQLException {
         String url = String.format(
           "jdbc:mysql://%s:%s/%s",
             host,
