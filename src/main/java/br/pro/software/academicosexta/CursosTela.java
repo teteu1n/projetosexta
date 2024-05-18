@@ -4,6 +4,9 @@
  */
 package br.pro.software.academicosexta;
 
+import java.sql.SQLException;
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author andyc
@@ -17,8 +20,18 @@ public class CursosTela extends javax.swing.JFrame {
         super("Cadastro de Cursos");
         initComponents();
         setLocationRelativeTo(null);
+        buscarCursos();
     }
 
+    private void buscarCursos() {
+        try {
+            CursoDAO cursoDAO = new CursoDAO();
+            Curso[] cursos = cursoDAO.obterCursos();
+            cursosComboBox.setModel(new DefaultComboBoxModel<>(cursos));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,7 +55,11 @@ public class CursosTela extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerenciamento de Cursos"));
 
-        cursosComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cursosComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cursosComboBoxActionPerformed(evt);
+            }
+        });
 
         idCursoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("id"));
         idCursoTextField.setEnabled(false);
@@ -101,7 +118,7 @@ public class CursosTela extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(removerCursoButton)
                     .addComponent(cancelarCursoButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -118,11 +135,15 @@ public class CursosTela extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cursosComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cursosComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cursosComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,7 +171,6 @@ public class CursosTela extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(CursosTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -164,7 +184,7 @@ public class CursosTela extends javax.swing.JFrame {
     private javax.swing.JButton adicionarCursoButton;
     private javax.swing.JButton atualizarCursoButton;
     private javax.swing.JButton cancelarCursoButton;
-    private javax.swing.JComboBox<String> cursosComboBox;
+    private javax.swing.JComboBox<Curso> cursosComboBox;
     private javax.swing.JTextField idCursoTextField;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nomeCursoTextField;

@@ -36,5 +36,7 @@ public class Curso {
         return tipo;
     }
     
-    
+    public String toString() {
+        return nome + ", " + tipo;
+    }
 }

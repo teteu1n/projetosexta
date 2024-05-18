@@ -16,7 +16,7 @@ public class LoginTela extends javax.swing.JFrame {
      * Creates new form LoginTela
      */
     public LoginTela() {
-        super("Sistema Acadêmico Sexta");
+        super("Sistema Acadêmico 3");
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -95,10 +95,20 @@ public class LoginTela extends javax.swing.JFrame {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         String login = loginTextField.getText();
         String senha = new String(senhaPassordField.getPassword());
-        if (login.equals("admin") && senha.equals("admin")) {
-            JOptionPane.showMessageDialog(null, "Bem vindo");
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuário ou senha inválido");
+        
+        Usuario usuario = new Usuario(login, senha);
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        try {
+            if (usuarioDAO.existe(usuario)) {
+                //JOptionPane.showMessageDialog(null, "Bem vindo");
+                DashboardTela dt = new DashboardTela();
+                dt.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário ou senha inválido");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Problema ao conectar com o banco");
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
