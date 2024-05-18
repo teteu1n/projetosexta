@@ -35,4 +35,15 @@ public class CursoDAO {
                 return cursos;
             }
     }
+    
+    public void criar(Curso curso) throws SQLException {
+        String sql = "insert into tb_curso (nome, tipo) values (?, ?);";
+        try (Connection conn = ConexaoBD.obterConexao();
+                PreparedStatement ps = conn.prepareStatement(sql);) {
+            ps.setString(1, curso.getNome());
+            ps.setString(2, curso.getTipo());
+            ps.executeQuery();
+        }
+              
+    }
 }

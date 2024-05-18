@@ -4,6 +4,7 @@
  */
 package br.pro.software.academicosexta;
 
+import java.awt.Color;
 import java.sql.SQLException;
 import javax.swing.DefaultComboBoxModel;
 
@@ -21,13 +22,37 @@ public class CursosTela extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         buscarCursos();
+        cursosComboBox.addActionListener((e) -> preencherCampos());
+        adicionarCursoButton.addActionListener((e) -> emCriacao());
     }
-
+    
+    private void emCriacao() {
+        idCursoTextField.setText("");
+        nomeCursoTextField.setEnabled(true);
+        nomeCursoTextField.setText("");
+        tipoCursoTextField.setEnabled(true);
+        tipoCursoTextField.setText("");
+        adicionarCursoButton.setText("Criar");
+        atualizarCursoButton.setEnabled(false);
+        removerCursoButton.setEnabled(false);
+        adicionarCursoButton.setBackground(Color.green);
+        cancelarCursoButton.setBackground(Color.red);
+    }
+    
+    private void preencherCampos() {
+        Curso selecionado = (Curso)cursosComboBox.getSelectedItem();
+        idCursoTextField.setText("" + selecionado.getId());
+        nomeCursoTextField.setText(selecionado.getNome());
+        tipoCursoTextField.setText(selecionado.getTipo());
+    }
+    
+    
     private void buscarCursos() {
         try {
             CursoDAO cursoDAO = new CursoDAO();
             Curso[] cursos = cursoDAO.obterCursos();
             cursosComboBox.setModel(new DefaultComboBoxModel<>(cursos));
+            preencherCampos();
         } catch (SQLException e) {
             e.printStackTrace();
         }
