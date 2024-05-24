@@ -75,6 +75,7 @@ public class CursosTela extends javax.swing.JFrame {
         atualizarCursoButton = new javax.swing.JButton();
         removerCursoButton = new javax.swing.JButton();
         cancelarCursoButton = new javax.swing.JButton();
+        mostraAlunosCursoTela = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,6 +104,13 @@ public class CursosTela extends javax.swing.JFrame {
 
         cancelarCursoButton.setText("Cancelar");
 
+        mostraAlunosCursoTela.setText("Mostra Alunos");
+        mostraAlunosCursoTela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostraAlunosCursoTelaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -123,6 +131,10 @@ public class CursosTela extends javax.swing.JFrame {
                             .addComponent(atualizarCursoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
                             .addComponent(cancelarCursoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mostraAlunosCursoTela, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,7 +155,9 @@ public class CursosTela extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(removerCursoButton)
                     .addComponent(cancelarCursoButton))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(mostraAlunosCursoTela)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,7 +174,7 @@ public class CursosTela extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,6 +183,13 @@ public class CursosTela extends javax.swing.JFrame {
     private void cursosComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cursosComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cursosComboBoxActionPerformed
+
+    private void mostraAlunosCursoTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostraAlunosCursoTelaActionPerformed
+        Curso curso = cursosComboBox.getItemAt(cursosComboBox.getSelectedIndex());
+        MostraAlunosCursoTela ac = new MostraAlunosCursoTela(curso);
+        ac.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_mostraAlunosCursoTelaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,6 +233,7 @@ public class CursosTela extends javax.swing.JFrame {
     private javax.swing.JComboBox<Curso> cursosComboBox;
     private javax.swing.JTextField idCursoTextField;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton mostraAlunosCursoTela;
     private javax.swing.JTextField nomeCursoTextField;
     private javax.swing.JButton removerCursoButton;
     private javax.swing.JTextField tipoCursoTextField;
