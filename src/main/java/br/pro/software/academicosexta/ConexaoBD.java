@@ -17,7 +17,7 @@ public class ConexaoBD {
     private static String porta = "3306";
     private static String db = "academico";
     private static String usuario = "root";
-    private static String senha = "1234"; // você coloca anima123
+    private static String senha = "root"; // você coloca anima123
 
     /*public static Connection obterConexao() throws SQLException {
         String url = String.format(
