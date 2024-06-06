@@ -92,7 +92,8 @@ public class DashboardTela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void alunosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunosButtonActionPerformed
-        // TODO add your handling code here:
+    MostraAlunosCursoTela mostraAlunosCursoTela = new MostraAlunosCursoTela();
+    mostraAlunosCursoTela.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_alunosButtonActionPerformed
 
     private void cursosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cursosButtonActionPerformed

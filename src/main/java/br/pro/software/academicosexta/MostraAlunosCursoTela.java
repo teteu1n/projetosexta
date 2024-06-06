@@ -18,8 +18,13 @@ public class MostraAlunosCursoTela extends javax.swing.JFrame {
         initComponents();
         idCursoLabel.setText(Integer.toString(curso.getId()));
         nomeCursoLabel.setText(curso.getNome());
-        tipoCursoLabel.setText(curso.getTipo());
+        linkexercicioCursoLabel.setText(curso.getLinkexercicio());
+        linkvideoaulaCursoLabel.setText(curso.getLinkexercicio());
         setLocationRelativeTo(null);
+    }
+
+    MostraAlunosCursoTela() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -34,9 +39,10 @@ public class MostraAlunosCursoTela extends javax.swing.JFrame {
         alunosCursoPanel = new javax.swing.JPanel();
         idCursoLabel = new javax.swing.JLabel();
         nomeCursoLabel = new javax.swing.JLabel();
-        tipoCursoLabel = new javax.swing.JLabel();
+        linkexercicioCursoLabel = new javax.swing.JLabel();
         voltarAlunosCursoButtom = new javax.swing.JButton();
         sairAlunosCursoButtom = new javax.swing.JButton();
+        linkvideoaulaCursoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,7 +50,7 @@ public class MostraAlunosCursoTela extends javax.swing.JFrame {
 
         nomeCursoLabel.setBorder(javax.swing.BorderFactory.createTitledBorder("nome curso"));
 
-        tipoCursoLabel.setBorder(javax.swing.BorderFactory.createTitledBorder("tipo curso"));
+        linkexercicioCursoLabel.setBorder(javax.swing.BorderFactory.createTitledBorder("tipo curso"));
 
         voltarAlunosCursoButtom.setText("Voltar");
         voltarAlunosCursoButtom.addActionListener(new java.awt.event.ActionListener() {
@@ -60,38 +66,56 @@ public class MostraAlunosCursoTela extends javax.swing.JFrame {
             }
         });
 
+        linkvideoaulaCursoLabel.setBorder(javax.swing.BorderFactory.createTitledBorder("tipo curso"));
+
         javax.swing.GroupLayout alunosCursoPanelLayout = new javax.swing.GroupLayout(alunosCursoPanel);
         alunosCursoPanel.setLayout(alunosCursoPanelLayout);
         alunosCursoPanelLayout.setHorizontalGroup(
             alunosCursoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(alunosCursoPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(idCursoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
+                .addGap(33, 33, 33)
+                .addComponent(idCursoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addComponent(nomeCursoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(tipoCursoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(alunosCursoPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, alunosCursoPanelLayout.createSequentialGroup()
                 .addGap(126, 126, 126)
                 .addComponent(voltarAlunosCursoButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
                 .addComponent(sairAlunosCursoButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(137, 137, 137))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, alunosCursoPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(linkexercicioCursoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(231, 231, 231))
+            .addGroup(alunosCursoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, alunosCursoPanelLayout.createSequentialGroup()
+                    .addContainerGap(256, Short.MAX_VALUE)
+                    .addComponent(linkvideoaulaCursoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(233, 233, 233)))
         );
         alunosCursoPanelLayout.setVerticalGroup(
             alunosCursoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(alunosCursoPanelLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(alunosCursoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tipoCursoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                    .addComponent(nomeCursoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(idCursoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE)
+                .addGroup(alunosCursoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(alunosCursoPanelLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(nomeCursoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(alunosCursoPanelLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(idCursoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(90, 90, 90)
+                .addComponent(linkexercicioCursoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addGroup(alunosCursoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(voltarAlunosCursoButtom, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                     .addComponent(sairAlunosCursoButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(27, 27, 27))
+            .addGroup(alunosCursoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(alunosCursoPanelLayout.createSequentialGroup()
+                    .addGap(110, 110, 110)
+                    .addComponent(linkvideoaulaCursoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(246, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,16 +123,16 @@ public class MostraAlunosCursoTela extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(35, 35, 35)
                 .addComponent(alunosCursoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(27, 27, 27)
                 .addComponent(alunosCursoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
@@ -163,9 +187,10 @@ public class MostraAlunosCursoTela extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel alunosCursoPanel;
     private javax.swing.JLabel idCursoLabel;
+    private javax.swing.JLabel linkexercicioCursoLabel;
+    private javax.swing.JLabel linkvideoaulaCursoLabel;
     private javax.swing.JLabel nomeCursoLabel;
     private javax.swing.JButton sairAlunosCursoButtom;
-    private javax.swing.JLabel tipoCursoLabel;
     private javax.swing.JButton voltarAlunosCursoButtom;
     // End of variables declaration//GEN-END:variables
 }

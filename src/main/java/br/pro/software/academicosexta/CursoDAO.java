@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class CursoDAO {
     
     public Curso[] obterCursos() throws SQLException {
-        String sql = "select * from tb_curso;";
+        String sql = "select id, nome from tb_materias;";
         try (Connection conn = ConexaoBD.obterConexao();
                 PreparedStatement ps = conn.prepareStatement(sql,
                         ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -29,19 +29,21 @@ public class CursoDAO {
                 while (rs.next()) {
                     int id = rs.getInt("id");
                     String nome = rs.getString("nome");
-                    String tipo = rs.getString("tipo");
-                    cursos[contador++] = new Curso(id, nome, tipo);
+                    String link_exercicio = rs.getString("link_exercicio");
+                    String link_videoaula = rs.getString("link_videoaula");
+                    cursos[contador++] = new Curso(id, nome, link_exercicio, link_videoaula);
                 }
                 return cursos;
             }
     }
     
     public void criar(Curso curso) throws SQLException {
-        String sql = "insert into tb_curso (nome, tipo) values (?, ?);";
+        String sql = "insert into tb_materias (nome, link_videoaula, link_exercicio) values (?, ?, ?);";
         try (Connection conn = ConexaoBD.obterConexao();
                 PreparedStatement ps = conn.prepareStatement(sql);) {
             ps.setString(1, curso.getNome());
-            ps.setString(2, curso.getTipo());
+            ps.setString(2, curso.getLinkvideoaula());
+            ps.setString(3, curso.getLinkexercicio());
             ps.executeQuery();
         }
               

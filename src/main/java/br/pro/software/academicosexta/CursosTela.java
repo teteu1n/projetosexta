@@ -30,8 +30,10 @@ public class CursosTela extends javax.swing.JFrame {
         idCursoTextField.setText("");
         nomeCursoTextField.setEnabled(true);
         nomeCursoTextField.setText("");
-        tipoCursoTextField.setEnabled(true);
-        tipoCursoTextField.setText("");
+        linkexercicioCursoTextField.setEnabled(true);
+        linkexercicioCursoTextField.setText("");
+        linkvideoaulaCursoTextField.setEnabled(true);
+        linkvideoaulaCursoTextField.setText("");
         adicionarCursoButton.setText("Criar");
         atualizarCursoButton.setEnabled(false);
         removerCursoButton.setEnabled(false);
@@ -43,7 +45,8 @@ public class CursosTela extends javax.swing.JFrame {
         Curso selecionado = (Curso)cursosComboBox.getSelectedItem();
         idCursoTextField.setText("" + selecionado.getId());
         nomeCursoTextField.setText(selecionado.getNome());
-        tipoCursoTextField.setText(selecionado.getTipo());
+        linkexercicioCursoTextField.setText(selecionado.getLinkexercicio());
+        linkvideoaulaCursoTextField.setText(selecionado.getLinkvideoaula());
     }
     
     
@@ -70,12 +73,13 @@ public class CursosTela extends javax.swing.JFrame {
         cursosComboBox = new javax.swing.JComboBox<>();
         idCursoTextField = new javax.swing.JTextField();
         nomeCursoTextField = new javax.swing.JTextField();
-        tipoCursoTextField = new javax.swing.JTextField();
+        linkvideoaulaCursoTextField = new javax.swing.JTextField();
         adicionarCursoButton = new javax.swing.JButton();
         atualizarCursoButton = new javax.swing.JButton();
         removerCursoButton = new javax.swing.JButton();
         cancelarCursoButton = new javax.swing.JButton();
         mostraAlunosCursoTela = new javax.swing.JButton();
+        linkexercicioCursoTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,8 +97,13 @@ public class CursosTela extends javax.swing.JFrame {
         nomeCursoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("nome"));
         nomeCursoTextField.setEnabled(false);
 
-        tipoCursoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("tipo"));
-        tipoCursoTextField.setEnabled(false);
+        linkvideoaulaCursoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("tipo"));
+        linkvideoaulaCursoTextField.setEnabled(false);
+        linkvideoaulaCursoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                linkvideoaulaCursoTextFieldActionPerformed(evt);
+            }
+        });
 
         adicionarCursoButton.setText("Novo");
 
@@ -111,6 +120,9 @@ public class CursosTela extends javax.swing.JFrame {
             }
         });
 
+        linkexercicioCursoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("tipo"));
+        linkexercicioCursoTextField.setEnabled(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -121,7 +133,7 @@ public class CursosTela extends javax.swing.JFrame {
                     .addComponent(cursosComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(idCursoTextField)
                     .addComponent(nomeCursoTextField)
-                    .addComponent(tipoCursoTextField)
+                    .addComponent(linkvideoaulaCursoTextField)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(removerCursoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
@@ -135,6 +147,11 @@ public class CursosTela extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(mostraAlunosCursoTela, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(101, 101, 101))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(linkexercicioCursoTextField)
+                    .addContainerGap()))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,9 +162,9 @@ public class CursosTela extends javax.swing.JFrame {
                 .addComponent(idCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(nomeCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tipoCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(linkvideoaulaCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adicionarCursoButton)
                     .addComponent(atualizarCursoButton))
@@ -158,6 +175,11 @@ public class CursosTela extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(mostraAlunosCursoTela)
                 .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(170, Short.MAX_VALUE)
+                    .addComponent(linkexercicioCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(151, 151, 151)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -174,7 +196,7 @@ public class CursosTela extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -185,11 +207,12 @@ public class CursosTela extends javax.swing.JFrame {
     }//GEN-LAST:event_cursosComboBoxActionPerformed
 
     private void mostraAlunosCursoTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostraAlunosCursoTelaActionPerformed
-        Curso curso = cursosComboBox.getItemAt(cursosComboBox.getSelectedIndex());
-        MostraAlunosCursoTela ac = new MostraAlunosCursoTela(curso);
-        ac.setVisible(true);
-        this.dispose();
+    
     }//GEN-LAST:event_mostraAlunosCursoTelaActionPerformed
+
+    private void linkvideoaulaCursoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linkvideoaulaCursoTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_linkvideoaulaCursoTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,9 +256,10 @@ public class CursosTela extends javax.swing.JFrame {
     private javax.swing.JComboBox<Curso> cursosComboBox;
     private javax.swing.JTextField idCursoTextField;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField linkexercicioCursoTextField;
+    private javax.swing.JTextField linkvideoaulaCursoTextField;
     private javax.swing.JButton mostraAlunosCursoTela;
     private javax.swing.JTextField nomeCursoTextField;
     private javax.swing.JButton removerCursoButton;
-    private javax.swing.JTextField tipoCursoTextField;
     // End of variables declaration//GEN-END:variables
 }

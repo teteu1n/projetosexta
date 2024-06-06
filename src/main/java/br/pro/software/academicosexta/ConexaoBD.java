@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class ConexaoBD {
     private static String host = "localhost";
     private static String porta = "3306";
-    private static String db = "academico";
+    private static String db = "CPT";
     private static String usuario = "root";
     private static String senha = "root"; // você coloca anima123
 
